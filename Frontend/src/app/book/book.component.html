@@ -1,0 +1,85 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <h5 class="text-center mb-4">Add Book</h5>
+  
+        <form [formGroup]="bookForm" (ngSubmit)="addBook()">
+          <div class="form-group mb-3">
+            <label for="title">Title</label>
+            <input
+              id="title"
+              formControlName="title"
+              class="form-control"
+              placeholder="Book Title"
+            />
+            <div
+              *ngIf="bookForm.get('title')?.invalid && bookForm.get('title')?.touched"
+              class="text-danger"
+            >
+              Book title is required
+            </div>
+          </div>
+  
+          <div class="form-group mb-3">
+            <label for="author">Author</label>
+            <input
+              id="author"
+              formControlName="author"
+              class="form-control"
+              placeholder="Enter Author name"
+            />
+            <div
+              *ngIf="bookForm.get('author')?.invalid && bookForm.get('author')?.touched"
+              class="text-danger"
+            >
+              Author name is required
+            </div>
+          </div>
+  
+          <div class="form-group mb-3">
+            <label for="description">Description</label>
+            <input
+              id="description"
+              formControlName="description"
+              class="form-control"
+              placeholder="Enter Description"
+            />
+            <div
+              *ngIf="bookForm.get('description')?.invalid && bookForm.get('description')?.touched"
+              class="text-danger"
+            >
+              Description is required
+            </div>
+          </div>
+  
+          <div class="form-group mb-3">
+            <label for="publishedYear">Published Year</label>
+            <input
+              id="publishedYear"
+              formControlName="publishedYear"
+              class="form-control"
+              placeholder="Enter Published Year"
+              type="number"
+            />
+            <div
+              *ngIf="bookForm.get('publishedYear')?.invalid && bookForm.get('publishedYear')?.touched"
+              class="text-danger"
+            >
+              Published Year is required and should be a valid number
+            </div>
+          </div>
+  
+          <button
+            type="submit"
+            [disabled]="bookForm.invalid"
+            class="btn btn-primary w-100"
+          >
+            Add to Cart
+          </button>
+        </form>
+  
+        <hr />
+      </div>
+    </div>
+  </div>
+  
